@@ -1,0 +1,50 @@
+.elements-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    row-gap: 35px;
+}
+
+.login-header{
+    color: aqua;
+    font-size: 55px;
+}
+
+.input{
+    width: 350px;
+    height: 5px;
+    padding: 25px;
+    border-radius: 2px;
+    font-size: large;
+}
+.input:hover{
+    outline: auto;
+    outline-color: aqua;
+}
+.button{
+    background-color: aqua;
+    color: white;
+    border-radius: 12px;
+    padding: 15px;
+    width: 100px;
+    height: 45px;
+    text-align: center;
+}
+
+.text-btn{
+    color: blue;
+    text-decoration: none;
+}
+.img-style{
+    width: 100px;
+}
