@@ -9,6 +9,7 @@ app.use(cors({
   origin: ['https://login-app-full-stack-frontend.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 dotenv.config();
