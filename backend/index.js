@@ -14,7 +14,7 @@ app.use(cors({
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
-const MONGOURL = process.env.MONGO_URL;
+const MONGOURL = 'mongodb+srv://sukantabhun:A466kalkaji@cluster0.hmzywij.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose.connect(MONGOURL).then(() => {
   console.log("database connection successfully")
