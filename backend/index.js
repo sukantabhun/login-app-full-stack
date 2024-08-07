@@ -6,9 +6,9 @@ import jwt from 'jsonwebtoken';
 
 const app = express();
 
-// CORS configuration
+
 app.use(cors({
-  origin: 'https://login-app-full-stack-frontend.vercel.app', // Your frontend URL
+  origin: 'https://login-app-full-stack-frontend.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -45,6 +45,9 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('users', userSchema);
 
 app.use(express.json());
+
+
+app.options('*', cors());
 
 app.get('/', (req, res) => {
   res.json('hello');
