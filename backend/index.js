@@ -4,20 +4,27 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
 
+const app = express();
+
+// CORS configuration
+app.use(cors({
+  origin: 'https://login-app-full-stack-frontend.vercel.app', // Your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 dotenv.config();
 
-const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGOURL = 'mongodb+srv://sukantabhun:A466kalkaji@cluster0.hmzywij.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
-mongoose.connect(MONGOURL)
-  .then(() => {
-    console.log("Database connection successfully");
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  })
-  .catch((error) => console.log(error));
+mongoose.connect(MONGOURL).then(() => {
+  console.log("Database connected successfully");
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}).catch((error) => console.log(error));
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -38,12 +45,6 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('users', userSchema);
 
 app.use(express.json());
-app.use(cors({
-  origin: 'https://login-app-full-stack-frontend.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
 
 app.get('/', (req, res) => {
   res.json('hello');
@@ -62,7 +63,7 @@ app.post('/register', async (req, res) => {
     await user.save();
     res.status(200).send('User registered successfully');
   } catch (error) {
-    res.status(500).send('User registration unsuccessful');
+    res.status(500).send("User registration unsuccessful");
   }
 });
 
@@ -80,6 +81,7 @@ app.post('/login/', async (req, res) => {
   }
 
   const isPasswordMatched = (password === dbUser.password);
+
   if (!isPasswordMatched) {
     return res.status(400).send('Invalid password');
   }
