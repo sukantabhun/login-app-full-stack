@@ -2,10 +2,10 @@
     "name": "backend",
     "version": "1.0.0",
     "description": "Node.js backend for login and registration",
-    "main": "server.js",
+    "main": "index.js",
     "type": "module",
     "scripts": {
-        "start": "nodemon server.js"
+        "start": "nodemon index.js"
     },
     "dependencies": {
         "bcrypt": "^5.0.1",
