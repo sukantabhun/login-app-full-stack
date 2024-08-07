@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 const app = express();
 
 app.use(cors({
-  origin: 'https://login-app-full-stack-frontend.vercel.app/',
+  origin: 'https://login-app-full-stack-frontend.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
