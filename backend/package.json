@@ -3,16 +3,21 @@
     "version": "1.0.0",
     "description": "Node.js backend for login and registration",
     "main": "server.js",
+    "type": "module",
     "scripts": {
         "start": "nodemon server.js"
     },
     "dependencies": {
-        "bcrypt": "5.0.1",
+        "bcrypt": "^5.0.1",
         "cors": "^2.8.5",
-        "express": "4.17.1",
-        "jsonwebtoken": "8.5.1",
-        "nodemon": "2.0.7"
+        "dotenv": "^16.4.5",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.5.2"
     },
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^3.1.4"
+    }
 }
